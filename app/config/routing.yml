@@ -1,0 +1,15 @@
+app:
+    resource: '@PortFolioBundle/Controller/'
+    type: annotation
+
+root:
+    path: /accueil
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /
+        permanent: true
+
+easy_admin_bundle:
+    resource: "@EasyAdminBundle/Controller/AdminController.php"
+    type:     annotation
+    prefix:   /admin

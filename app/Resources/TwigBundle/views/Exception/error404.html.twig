@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+	<div class="bloc-error">
+	    <img src="{{ asset('images/error/404.png') }}">
+		    <p>
+		        HA! Comment tu as pu te retrouver là? <a href="{{ path('portfolio_homepage') }}">Retourne vite à la page d'accueil</a> :).
+		    </p>	
+		<img src="{{ asset('images/error/ha.gif') }}">
+	</div>
+{% endblock %}

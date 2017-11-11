@@ -1,0 +1,117 @@
+{% extends 'base.html.twig' %}
+{% block accueil %} active {% endblock %}
+{% block content %}
+    <div class="container-content">
+        <div class="bloc-myself">
+            <h3 class="myself-title">A propos de moi !</h3>
+            <p class="myself-content">
+                Jeune codeur en plein apprentissage, j'en profite pour partager mes expériences en entreprise ou en meetup<br><br>
+                Actuellement développeur Symfony/React et astronaute chez <a href="http://eleven-labs.com">Eleven Labs</a>, n'hésitez pas à me contacter pour discuter code, technos ou du nutella.<br><br>
+            </p>
+            <p class="myself-signature">
+                Mavillaz 'Kize' Rémi
+            </p>
+            <h3 class="myself-title">Parcours</h3>
+            <p class="myself-parcours">
+                L'intégralité de mes projets se trouvent sur github !<br><br>
+            </p>
+            <ul class="parcours-bar">
+                <a href="https://github.com/KizeRemi">
+                    <li class="parcours-item"><i class="fa fa-github fa-2x" aria-hidden="true"></i></li>
+                </a>
+                <a href="https://www.linkedin.com/in/r%C3%A9mi-mavillaz">
+                    <li class="parcours-item"><i class="fa fa-linkedin fa-2x" aria-hidden="true"></i></li>
+                </a>
+            </ul>
+            <div class="myself-follow" >
+                Oublie pas de me follow sur Github ;) <br><br>
+                <a class="github-button" href="https://github.com/KizeRemi" aria-label="Follow @KizeRemi on GitHub">Follow @KizeRemi</a><br>
+            </div>
+        </div>
+        <article class="last-article-container" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <h2>Dernier article publié</h2>
+            <h3 itemprop="headline" class="last-article-title">
+                <a href="{{ path('portfolio_article_show', {'slug': article.slug }) }}">{{ article.title }}</a>
+            </h3>
+            <div class="last-article-img"><img src="{{ asset('images/articles/' ~ article.img) }}"></div>
+            <div class="last-article-resume">{{ article.resume|raw }}</div>
+            <div itemprop="articleBody" class="last-article-content">
+                {{ article.content|truncate(2000)|raw }}
+                <a href="{{ path('portfolio_article_show', {'slug': article.slug }) }}">
+                    <span class="read-more">Lire la suite.</span>
+                </a>
+            </div>
+            <div class="last-article-infos">
+                <time itemprop="datePublished"><i class="fa fa-clock-o"></i>&nbsp;&nbsp;{{ article.date }}</time> <cite itemprop="author">{{ article.user }}</cite>
+            </div>
+        </article>
+    </div>
+    <div class="skills-container">  
+        <h2> Mes compétences </h2>
+        <div class="container-competence">
+            <div class="bloc-competences-primaire">
+                <h3>Principales</h3>
+                <div class="skill">
+                    <div class="skill-index">1</div> 
+                    <div class="skill-name">HTML / CSS / SASS</div>     
+                </div>
+                <div class="skill">
+                    <div class="skill-index">2</div>
+                    <div class="skill-name">PHP7</div>
+                </div>
+                <div class="skill">
+                    <div class="skill-index">3</div>
+                    <div class="skill-name">Javascript / Jquery / Ajax</div>
+                </div>
+                <div class="skill">
+                    <div class="skill-index">4</div>
+                    <div class="skill-name">MySQL</div>
+                </div>
+                <div class="skill">
+                    <div class="skill-index">5  </div>
+                    <div class="skill-name">Symfony 3</div>
+                </div>
+                <div class="skill">
+                    <div class="skill-index">6  </div>
+                    <div class="skill-name">API Rest</div>
+                </div>
+            </div>
+            <div class="bloc-competences-secondaire">
+                <h3>Secondaires</h3>
+                <div class="skill">
+                    <div class="skill-index">1</div> 
+                    <div class="skill-name">AngularJS</div>     
+                </div>
+                <div class="skill">
+                    <div class="skill-index">2</div>
+                    <div class="skill-name">NodeJS</div>
+                </div>
+                <div class="skill">
+                    <div class="skill-index">3</div>
+                    <div class="skill-name">Swift</div>
+                </div>
+                <div class="skill">
+                    <div class="skill-index">4</div>
+                    <div class="skill-name">Android SDK</div>
+                </div>
+                <div class="skill">
+                    <div class="skill-index">5</div>
+                    <div class="skill-name">Web Marketing</div>
+                </div>
+                <div class="skill">
+                    <div class="skill-index">6</div>
+                    <div class="skill-name">UI / UX Design</div>
+                </div>
+                <div class="skill">
+                    <div class="skill-index">7</div>
+                    <div class="skill-name">PhotoShop / Sketch</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="map-responsive">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.146280812996!2d2.2886782158848806!3d48.87448787928907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66fed99703b99%3A0xbd7607136e080f82!2s15+Avenue+de+la+Grande-Arm%C3%A9e%2C+75116+Paris!5e0!3m2!1sfr!2sfr!4v1510052461718"
+        width="1210" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block title %}Mavillaz Rémi - Articles - Meetup{% endblock %}
+{% block article %} active {% endblock %}
+{% block content %}
+<div class="container-article">
+	<h1>- Mes articl<span class="letter-hide">e</span><span class="real-last-letter letter-project"></span>&nbsp; -</h1>
+	<p>Parce qu'il est facile de s'exprimer sur le web, n'hésites pas à lire mes articles sur les meet-up auxquels j'ai participé. :)</p>
+	{% for article in articles %}
+		<article class="bloc-article">
+			<div><a href="{{ path('portfolio_article_show', {'slug': article.slug }) }}"><img src="{{ asset('images/articles/' ~ article.img) }}"></a></div>
+			<div>
+				<h2><a href="{{ path('portfolio_article_show', {'slug': article.slug }) }}">{{ article.title}}</a></h2>
+				<p>Ecrit par Rémi Mavillaz en {{ article.date}}</p>
+				<p>{{ article.resume }} <a href="{{ path('portfolio_article_show', {'slug': article.slug }) }}">Lire l'article >></a></p> 
+			</div>
+		</article>
+	{% endfor %}
+</div>
+
+{% endblock %}

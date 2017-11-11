@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="fr">
+    <head>
+        <link rel="icon" type="image/png" href="{{ asset('images/others/fav-logo.png') }}" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="Content-Language" content="fr">
+        <meta name="Description" content="PortFolio de Mavillaz Rémi, développeur web. Venez découvrir mon parcours, mes domaines de compétences et restons connectés grâce aux réseaux sociaux !">
+        <meta name="Keywords" content="developpeur, web, sirom, symfony, php, html, css, docker, javascript, jquery, nodejs, sass, mysql, framework, mavillaz, remi">
+        <meta name="Subject" content=" developpement">
+        <meta name="Author" content="Mavillaz Rémi">
+        <meta name="Rating" content="general">
+        <meta name="Geography" content="Paris">
+        <meta name="Category" content="engineering">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+        <title>{% block title %}Mavillaz Rémi - Développeur web chez Sirom - Paris{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('css/reset.css') }}" />
+            <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
+            <link rel="stylesheet" href="{{ asset('css/menu.css') }}" />
+            <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/pace.tmpl.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+            <link rel="stylesheet" href="{{ asset('css/small-style.css') }}" />
+        {% endblock %}
+        <script async defer src="https://buttons.github.io/buttons.js"></script>
+    </head>
+    <body class="pushmenu-push"> 
+        <nav class="pushmenu pushmenu-left">
+            <div class="logo-menu display">
+                <img alt="Logo menu" src="{{ asset('images/social-network/logo.png') }}">
+            </div>
+            <ul class="links">
+               <li> <a href="{{ path('portfolio_homepage') }}">Accueil</a> </li>
+               <li> <a href="{{ path('portfolio_article') }}">Articles</a> </li>
+               <li> <a href="{{ path('portfolio_project') }}">Projets</a> </li>
+               <li> <a href="{{ path('portfolio_message') }}">Me contacter</a> </li>
+            </ul>
+        </nav>
+        <header>
+            <div class="top-bar">
+                <ul class="social-network-bar">
+                    <a href="https://fr-fr.facebook.com/remi.mavillaz">
+                        <li class="follow-me-item"><i class="fa fa-facebook" aria-hidden="true"></i></li>
+                    </a>
+                    <a href="https://www.linkedin.com/in/r%C3%A9mi-mavillaz">
+                        <li class="follow-me-item"><i class="fa fa-linkedin" aria-hidden="true"></i></li>
+                    </a>
+                    <a href="https://twitter.com/Kize_FR">
+                        <li class="follow-me-item"><i class="fa fa-twitter" aria-hidden="true"></i></li>
+                    </a>
+                    <a href="https://github.com/KizeRemi">
+                        <li class="follow-me-item"><i class="fa fa-github" aria-hidden="true"></i></li>
+                    </a>
+                </ul>
+                <ul class="translate-container">
+                    <a href="#">
+                        <li class="translate-item">FR</li>
+                    </a>
+                    -
+                    <a href="#">
+                        <li class="translate-item">EN</li>
+                    </a>
+                </ul>
+            </div>
+            <div class="bloc-logo">
+                <img alt="Logo banniere" src="{{ asset('images/social-network/art.png') }}">
+            </div>
+        </header>
+        <div class="container-menu">
+            <nav id="nav-menu">
+                <ul class="menu">
+                    <button class="c-hamburger c-hamburger--htx display">
+                        <span>toggle menu</span>
+                    </button>
+                    <li class="menu-item menu-display display"><a href="#"> MENU </a></li> 
+                    <li class="menu-item {% block accueil %} {% endblock %}"><a href="{{ path('portfolio_homepage') }}"> Accueil </a></li> 
+                    <li class="menu-item {% block article %} {% endblock %}"><a href="{{ path('portfolio_article') }}"> Articles </a></li> 
+                    <img alt="Logo menu" src="{{ asset('images/social-network/logo.png') }}">
+                    <li class="menu-item {% block project %} {% endblock %}"><a href="{{ path('portfolio_project') }}"> Projets </a></li> 
+                    <li class="menu-item {% block contact %} {% endblock %}"><a href="{{ path('portfolio_message') }}"> Contacter</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+            <footer>
+                <div class="follow-me-container">
+                    <ul>
+                        <li class="follow-me-item"><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></li>
+                        <li class="follow-me-item"><i class="fa fa-linkedin fa-2x" aria-hidden="true"></i></li>
+                        <li class="follow-me-item"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></li>
+                        <li class="follow-me-item"><i class="fa fa-github fa-2x" aria-hidden="true"></i></li>
+                    </ul>
+                </div>
+                <div class="site-stack-container">
+                    <p>Site développé sous Symfony 3.2 par Rémi "Kize" Mavillaz. Intégration en HTML5, CSS3.</p>
+                </div>
+                <div class="last-update-container">
+                    Version 1.5 - Dernière mise à jour le 1er Juillet 2017
+                </div>
+            </footer>
+        </div>
+        {% block javascripts %}
+             <script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
+             <script type="text/javascript" src="{{ asset('js/ready.js') }}"></script>
+             <script data-pace-options='{ "ajax": false }' type="text/javascript" src="{{ asset('js/pace.min.js') }}"></script>
+        {% endblock %}
+    </body>
+</html>

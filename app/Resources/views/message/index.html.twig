@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+{% block title %}Mavillaz Rémi - Envoyer un message{% endblock %}
+{% block contact %} active {% endblock %}
+{% block content %}
+    <div id="bloc-form">
+        <h1>- Envoyer un messa<span class="letter-hide">g</span><span class="real-last-letter"></span>&nbsp;&nbsp;-</h1>
+        <p>Quelque chose à me dire? N'hésite pas à me contacter via ce formulaire ! :)</p>
+        <div>
+            {% for label, flashes in app.session.flashbag.all %}
+                {% for flash in flashes %}
+                    <div class="flash-{{ label }}">
+                        {{ flash }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+            {{ form_start(form) }}
+            <div>
+                {{ form_label(form.email) }}
+                <div>
+                    {{ form_widget(form.email) }}
+                </div>
+                <div class="form-error">
+                    {{ form_errors(form.email) }}
+                </div>
+            </div>
+            <div>
+                {{ form_label(form.title) }}
+                <div>
+                    {{ form_widget(form.title) }}
+                </div>
+                <div class="form-error">
+                    {{ form_errors(form.title) }}
+                </div>
+            </div>
+            <div>
+                {{ form_label(form.content) }}
+                <div>
+                    {{ form_widget(form.content) }}
+                </div>
+                <div class="form-error">
+                    {{ form_errors(form.content) }}
+                </div>
+                
+            </div>
+            <div>
+                {{ form_widget(form.send) }}
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}
+

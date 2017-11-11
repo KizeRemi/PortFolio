@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+{% block title %}Mavillaz Rémi - Projets{% endblock %}
+{% block project %} active {% endblock %}
+{% block content %}
+<div class="container-project">
+	<h1>- Projets Réalis<span class="letter-hide">é</span><span class="real-last-letter letter-project"></span>&nbsp; -</h1>
+	<p>Attention, cette liste comporte uniquement mes projets OpenSource et hors cadre professionnel. :)</p>
+	{% for project in projects %}
+		<article class="bloc-project">
+			<h2>{{ project.title }}</h2>
+			<p>Développé en {{ project.date }} par {{ project.user }}</p>
+			<div>
+				{{ project.content|raw }}
+			</div>
+			<div class="project-link">
+				<a target="_blank" href="{{ project.github}}">Voir sur Github</a>
+				{% autoescape %}
+				{% if project.url %}<a target="_blank" href="{{ project.url|raw}}">Voir le site</a>{% endif %}
+					{% endautoescape %}
+			</div>
+		</article>
+	{% endfor %}
+</div>
+
+{% endblock %}

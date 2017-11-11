@@ -1,0 +1,203 @@
+/*** burger ***/
+.c-hamburger {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: 46px;
+  height: 46px;
+  font-size: 0;
+  text-indent: -9999px;
+  appearance: none;
+  box-shadow: none;
+  border-radius: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.c-hamburger:focus {
+  outline: none;
+}
+.c-hamburger span {
+  display: block;
+  position: absolute;
+  top: 20px;
+  left: 8px;
+  right: 8px;
+  height: 4px;
+  background: white;
+}
+
+.c-hamburger span::before,
+.c-hamburger span::after {
+  position: absolute;
+  display: block;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #fff;
+  content: "";
+}
+
+.c-hamburger span::before {
+  top: -10px;
+}
+
+.c-hamburger span::after {
+  bottom: -10px;
+}
+
+.c-hamburger--htx {
+  background-color: #cc9966;
+}
+
+.c-hamburger--htx span {
+  transition: background 0s 0.3s;
+}
+
+.c-hamburger--htx span::before,
+.c-hamburger--htx span::after {
+  transition-duration: 0.3s, 0.3s;
+  transition-delay: 0.3s, 0s;
+}
+
+.c-hamburger--htx span::before {
+  transition-property: top, transform;
+}
+
+.c-hamburger--htx span::after {
+  transition-property: bottom, transform;
+}
+
+/* active state, i.e. menu open */
+.c-hamburger--htx.is-active {
+  background-color: #cc9966;
+}
+
+.c-hamburger--htx.is-active span {
+  background: none;
+}
+
+.c-hamburger--htx.is-active span::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.c-hamburger--htx.is-active span::after {
+  bottom: 0;
+  transform: rotate(-45deg);
+}
+
+.logo-menu{
+  margin-top: 20px;
+}
+.logo-menu img{
+  height: 50px;
+}
+.pushmenu { /*this is the nav*/
+  background: #FFF;
+  border: 1px solid #cc9966;
+  display: block;
+  text-align: center;
+  width: 300px;
+  height: 100%;
+  top: 47px;
+  z-index: 1000;
+  position: fixed;
+}
+
+.pushmenu h3 {
+  color: #f1f1f1;
+  font-size: 1.3em;
+  font-weight: 400;
+  padding: 15px 25px;
+  margin: 0;
+  background: #333;
+  height: 16px;
+}
+
+.links {
+  list-style-type: none;
+  display: block;
+  padding: 0 10px 0 10px;
+  margin-top: 50px;
+  width: 100%;
+}
+
+.links li { 
+  border-top: 1px solid #bdc1c4;
+  text-align: left;
+  width: 100%;
+  height: 50px;
+}
+.links li:after {
+   content: none;
+}
+.links li a {
+  position: relative;
+  display: block; /* drops the nav vertically*/
+  color: #cc9966;
+  font-size: 1.3em;
+  font-weight: 400;
+  text-decoration: none;
+  padding-left: 10px;
+}
+.links li:hover{
+  height: 50px;
+  padding: 10px;
+  width:100%;
+}
+.links li a:active { color: #dbdbdb; }
+
+.pushmenu-left { left: -300px; }
+
+.pushmenu-left.pushmenu-open { left: 0; }
+
+.pushmenu-push {
+  overflow-x: hidden;
+  position: relative;
+  left: 0;
+}
+
+.pushmenu-push-toright { 
+  left: 300px;
+}
+
+/*Transition*/
+
+.pushmenu, .pushmenu-push {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+#nav_list {
+  background: url(icon_nav.png) no-repeat left top;
+  cursor: pointer;
+  height: 27px;
+  width: 33px;
+  text-indent: -99999em;
+}
+
+nav-list.active { background-position: -331px top; }
+
+.buttonset {
+  background: #00A287;
+  height: 16px;
+  padding: 10px 20px 20px;
+}
+
+section.content {
+  padding: 10px 20px;
+}
+
+.c-hamburger--htx.is-active span::before,
+.c-hamburger--htx.is-active span::after {
+  transition-delay: 0s, 0.3s;
+}
+.c-hamburger, .menu-display{
+	display: none;
+}
+
