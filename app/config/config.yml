@@ -75,6 +75,7 @@ easy_admin:
             form:
                 fields:
                     - title
+                    - img
                     - resume
                     - { property: 'content', type: 'ckeditor' }
                     - date
