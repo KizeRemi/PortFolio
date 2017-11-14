@@ -9,7 +9,7 @@
 		<article itemscope="itemscope" itemtype="http://schema.org/Article">
 			<div>
 				<a href="{{ path('portfolio_article_show', {'slug': article.slug }) }}">
-					<img alt="Image article" src="{{ asset('images/articles/' ~ article.img) }}" title="{{ article.title}}">
+					<img alt="Image article" src="{{ asset('images/articles/' ~ article.img) }}" title="{{ article.title }}">
 				</a>
 			</div>
 			<div>
@@ -20,6 +20,13 @@
 				<p class="article-item-resume">
 					<a href="{{ path('portfolio_article_show', {'slug': article.slug }) }}">{{ article.resume }}</a>
 				</p> 
+				<a href="https://twitter.com/share?ref_src=twsrc%5Etfw"
+				   data-text="{{ article.title }}" 
+				   class="twitter-share-button"
+				   data-url="{{ absolute_url(path('portfolio_article_show', {'slug': article.slug })) }}"
+				   data-show-count="false">
+					<i class="fa fa-share-alt" aria-hidden="true">Partager</i>
+				</a>
 			</div>
 		</article>
 	{% endfor %}
