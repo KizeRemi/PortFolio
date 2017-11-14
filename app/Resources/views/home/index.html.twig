@@ -29,7 +29,7 @@
             </div>
         </div>
         <article class="last-article-container" itemscope="itemscope" itemtype="http://schema.org/Article">
-            <h2>Dernier article publié</h2>
+            <h2 class="bloc-title">Dernier article publié</h2>
             <h3 itemprop="headline" class="last-article-title">
                 <a href="{{ path('portfolio_article_show', {'slug': article.slug }) }}">{{ article.title }}</a>
             </h3>
@@ -47,7 +47,7 @@
         </article>
     </div>
     <div class="technos-container">
-        <h2> Mes compétences </h2>
+        <h2 class="bloc-title"> Mes compétences </h2>
         <div class="technos-bloc">
             <div class="techno-item">
                 <img alt="Php logo" src="{{ asset('images/skills/php.png') }}">

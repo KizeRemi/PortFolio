@@ -22,13 +22,15 @@ a:hover{
 h1,h2,h3{
 	text-transform: uppercase;
 }
-h2 {
+
+.bloc-title {
 	background-color: #cc9966;
 	color: #ffffff;
 	display: inline-block;
 	font-size: 14px;
 	padding: 5px 30px;
 }
+
 h3 {
 	font-size: 14px;
 	font-weight: bold;
@@ -114,6 +116,18 @@ nav ul li:hover:after {
 	font-size: 13px;
 	padding: 20px 10px 20px 40px;
 	width: 100%;
+}
+/****************/
+/*** All page ***/
+/****************/
+.title-page {
+	color: #cc9966;
+	font-weight: bold;
+}
+
+.subtitle-page {
+	color: #7a7878;
+	font-size: 16px;
 }
 /**********************/
 /*** Social network ***/
@@ -207,7 +221,6 @@ nav ul li:hover:after {
 /*** Bloc Last Article ***/
 /*************************/
 .last-article-container {
-	background-color: #ffffff;
 	flex: 1;
 	order: 2;
 	padding: 30px;
@@ -382,10 +395,10 @@ textarea{
 	margin: 4rem;
 	text-align: center;
 }
-.container-project > p, .container-article > p {
+.container-project > p {
 	text-align:center;
 }
-.container-project > article, .container-article > article{
+.container-project > article {
 	border-top: 1px solid  #ddd;
 	line-height: 1.25rem;
 	padding: 0 0 2rem 0;
@@ -419,34 +432,47 @@ textarea{
 	max-height: 400px;
 }
 
+/********************/
+/*** Article list ***/
+/********************/
+article {
+	background-color: #ffffff;
+}
+
+.container-article {
+	text-align: center;
+}
+
 .container-article article{
-	border-bottom: 1px solid  #ddd;
 	display: flex;
-	padding: 2rem 0;
+	margin-bottom: 2rem;
+	padding: 2rem;
 	overflow: hidden;
+	text-align: left;
 }
 
 .container-article article div:first-child img{
 	max-height: 220px;
 	max-width: 100%;
+    transition: all .2s ease-in-out;
 }
 .container-article article div p:last-child{
 	color: #000;
 	font-style: normal;
 }
-.container-article article h2, .container-article article a{
-	color: #ffffff;
+
+.container-article article h3 {
+	font-size: 14px;
+	letter-spacing: 1px;
+}
+.container-article article a{
+	color: #000000;
 }
 .container-article article div{
 	overflow: hidden;
+	margin-right: 1rem;
 }
-.container-article article div:last-child{
-	margin-left: 1rem;
-}
-.container-article article div img {
-    transition: all .2s ease-in-out;
 
-}
 .container-article article div img:hover {
     transform: scale(1.1); 
 }

@@ -3,15 +3,23 @@
 {% block article %} active {% endblock %}
 {% block content %}
 <div class="container-article">
-	<h1>- Mes articl<span class="letter-hide">e</span><span class="real-last-letter letter-project"></span>&nbsp; -</h1>
-	<p>Parce qu'il est facile de s'exprimer sur le web, n'hésites pas à lire mes articles sur les meet-up auxquels j'ai participé. :)</p>
+	<h2 class="title-page">Blog</h2>
+	<p class="subtitle-page">Ici, je m'exprime sur mes différentes expèriences professionnelles. Ressentis, avis perso, conseils, tout y passe. </p>
 	{% for article in articles %}
-		<article class="bloc-article">
-			<div><a href="{{ path('portfolio_article_show', {'slug': article.slug }) }}"><img src="{{ asset('images/articles/' ~ article.img) }}"></a></div>
+		<article itemscope="itemscope" itemtype="http://schema.org/Article">
 			<div>
-				<h2><a href="{{ path('portfolio_article_show', {'slug': article.slug }) }}">{{ article.title}}</a></h2>
-				<p>Ecrit par Rémi Mavillaz en {{ article.date}}</p>
-				<p>{{ article.resume }} <a href="{{ path('portfolio_article_show', {'slug': article.slug }) }}">Lire l'article >></a></p> 
+				<a href="{{ path('portfolio_article_show', {'slug': article.slug }) }}">
+					<img alt="Image article" src="{{ asset('images/articles/' ~ article.img) }}" title="{{ article.title}}">
+				</a>
+			</div>
+			<div>
+				<h3 itemprop="headline"><a href="{{ path('portfolio_article_show', {'slug': article.slug }) }}">{{ article.title}}</a></h3>
+				<p>
+					Ecrit par <cite itemprop="author">Rémi Mavillaz</cite> en <time itemprop="datePublished">{{ article.date}}</time>
+				</p>
+				<p class="article-item-resume">
+					<a href="{{ path('portfolio_article_show', {'slug': article.slug }) }}">{{ article.resume }}</a>
+				</p> 
 			</div>
 		</article>
 	{% endfor %}
