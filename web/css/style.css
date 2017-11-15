@@ -477,28 +477,31 @@ article {
     transform: scale(1.1); 
 }
 
-.container-article-show h3{
-	margin-top:3rem;
-	text-align: center;
-}
-.container-article-show h2{
-	margin: 1rem 0 3rem 0;
-	text-align: center;
+.container-article-show {
+	margin-bottom: 2rem;
+	padding: 2rem;
 }
 
-.article-content{
-	margin: 2rem 0;
+.container-article-show img{
+	margin-top: 1rem;
+	max-width: 100%;
+	max-height: 350px;
 }
 
-.article-content h4{
-	color: #cc9966;
-	margin:2rem 0;
+.container-article-show h2 {
+	margin-bottom: 1.5rem;
+	text-align: center;
 }
-.article-intro{
+.article-image {
+	width: 100%;
+	text-align: center;
+}
+.article-resume {
+	margin: 1rem 0;
+}
+
+.article-resume{
 	font-style: italic;
-}
-.article-signature{
-	text-align: right;
 }
 
 /**************/

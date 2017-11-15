@@ -77,9 +77,6 @@
 		padding: 0 10px;
 	}
 
-	.container-article, .container-article-show{
-		padding: 10px;
-	}
 	.container-article article{
 		flex-direction: column;
 
@@ -151,6 +148,7 @@
 	}
 
 	.container{
+		font-size: 14px;
 		padding: 0;
 		max-width: 100%;
 	}
@@ -169,6 +167,13 @@
 		order: 1;
 	}
 
+	.article-content, .last-article-resume, .last-article-content {
+		word-wrap: break-word;
+		text-align: justify;
+	}
+	.bloc-myself, .last-article-container, .container-article article, .container-article-show {
+		padding: 30px 15px;
+	}
 	.technos-bloc {
 		flex-direction: column;
 	}
@@ -223,9 +228,7 @@
 		max-height: none;
 		max-width:100%;
 	}
-	.bloc-article div h2{
-		font-size: 22px;
-	}
+
 	.container-article-show h2{
 		font-size: 20px;
 	}

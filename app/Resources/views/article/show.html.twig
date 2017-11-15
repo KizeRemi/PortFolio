@@ -2,13 +2,16 @@
 {% block title %}Mavillaz Rémi - {{ article.title }}{% endblock %}
 {% block article %} active {% endblock %}
 {% block content %}
-<div class="container-article-show">
-	<h3>- Meet-up -</h3>
+<article class="container-article-show" itemscope="itemscope" itemtype="http://schema.org/Article">
 	<h2>{{ article.title }}</h2>
 	<div class="article-societe">Société: {{ article.company }}</div>
 	<div class="article-description">Ecrit par {{ article.user }} en {{ article.date }}</div>
+	<div class="article-image">
+		<img alt="Image article" src="{{ asset('images/articles/' ~ article.img) }}" title="{{ article.title }}">
+	</div>
+	<div class="article-resume">{{ article.resume }}</div>
 	<div class="article-content"> {{ article.content|raw }}</div>
-	<div class="article-signature"> Mavillaz Rémi - Développeur Web - Etudiant en alternance à l'ECV Digital</div>
-</div>
+	<cite class="article-signature" itemprop="author"> Mavillaz Rémi</cite>
+</article>
 
 {% endblock %}
