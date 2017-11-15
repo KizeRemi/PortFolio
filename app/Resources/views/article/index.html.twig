@@ -12,7 +12,7 @@
 					<img alt="Image article" src="{{ asset('images/articles/' ~ article.img) }}" title="{{ article.title }}">
 				</a>
 			</div>
-			<div>
+			<div class="article-content">
 				<h3 itemprop="headline"><a href="{{ path('portfolio_article_show', {'slug': article.slug }) }}">{{ article.title}}</a></h3>
 				<p>
 					Ecrit par <cite itemprop="author">Rémi Mavillaz</cite> en <time itemprop="datePublished">{{ article.date}}</time>
