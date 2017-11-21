@@ -3,20 +3,25 @@ namespace PortFolioBundle\Services\Github;
 
 use GuzzleHttp\ClientInterface;
 
-class UserActivity {
+class UserActivity 
+{
 
     private $api;
     private $user;
+    private $eventFactory;
 
-    public function __construct(Api $api, string $user)
+    public function __construct(Api $api, string $user, EventFactory $eventFactory)
     {
         $this->api = $api;
         $this->user = $user;
+        $this->eventFactory = $eventFactory;
     }
 
     public function getActivities(array $options = [])
     {
-        $response = $this->api->handleCall('/repos/'.$this->user.'/portfolio/commits', $options);
-        return $this->api->handleResponse($response);
+        $response = $this->api->handleCall('/users/'.$this->user.'/events', ['per_page' => 6]);
+        $data = $this->api->handleResponse($response);
+
+        return $this->eventFactory->createEventCollection($data);
     }
 }

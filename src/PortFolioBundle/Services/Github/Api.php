@@ -4,8 +4,8 @@ namespace PortFolioBundle\Services\Github;
 use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\ResponseInterface;
 
-class Api {
-
+class Api 
+{
     private $client;
     private $uri;
 
@@ -17,15 +17,11 @@ class Api {
 
     public function handleCall(string $url, array $options)
     {
+        $options['query'] = $options;
+
         return $this->client->get($this->baseUri.$url, $options);
     }
 
-    /**
-     * Handle slack basic response
-     *
-     * @param ResponseInterface $response
-     * @return array
-     */
     public function handleResponse(ResponseInterface $response)
     {
         $data = json_decode($response->getBody(), true);
