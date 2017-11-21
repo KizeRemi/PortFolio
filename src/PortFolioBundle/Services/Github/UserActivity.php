@@ -16,7 +16,7 @@ class UserActivity {
 
     public function getActivities(array $options = [])
     {
-        $response = $this->api->handleCall('/users/'.$this->user.'/events', $options);
+        $response = $this->api->handleCall('/repos/'.$this->user.'/portfolio/commits', $options);
         return $this->api->handleResponse($response);
     }
 }
