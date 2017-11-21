@@ -37,3 +37,20 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+    #slack
+    app.guzzle:
+        class: 'GuzzleHttp\Client'
+
+    portfolio.github.api:
+        public: true
+        class: PortFolioBundle\Services\Github\Api
+        arguments:
+            - '@app.guzzle'
+            - '%portfolio.base_uri.github_api%'
+
+    portfolio.github.user_activity:
+        public: true
+        class: PortFolioBundle\Services\Github\UserActivity
+        arguments:
+            - '@portfolio.github.api'
+            - '%portfolio.github_user%'

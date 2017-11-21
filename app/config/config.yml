@@ -7,6 +7,8 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
+    portfolio.base_uri.github_api: https://api.github.com
+    portfolio.github_user: KizeRemi
 
 framework:
     #esi: ~
