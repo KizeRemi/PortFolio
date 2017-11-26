@@ -22,7 +22,7 @@
 						</a>
 						on <a href="{{ 'https://github.com/' ~ githubActivity.name }}">{{ githubActivity.name}}</a>
 					{% endif %}
-				{% else %}
+				{% elseif githubActivity.type == 'PushEvent' %}
 					Pushed to 
 					<a href="{{ 'https://github.com/' ~  githubActivity.name ~ '/tree/' ~ githubActivity.ref }}" target="_blank">
 					</a> on 
@@ -33,7 +33,19 @@
 							#{{ githubActivity.commit }}
 						</a><span class="commit-message">:&nbsp; {{ githubActivity.message }}</span>
 					</p>
-				{% endif %}
+				{% else  %}
+					{% if githubActivity.pullRequestAction == 'opened' %}
+						Opened a pull request 						
+						<a href="{{ 'https://github.com/' ~  githubActivity.name ~ '/tree/' ~ githubActivity.ref }}" target="_blank">
+							{{ githubActivity.ref }}
+						</a> on <a href="{{ 'https://github.com/' ~ githubActivity.name }}">{{ githubActivity.name}}</a>
+					{% else %}
+						Merge branch						
+						<a href="{{ 'https://github.com/' ~  githubActivity.name ~ '/tree/' ~ githubActivity.ref }}" target="_blank">
+							{{ githubActivity.ref }}
+						</a> on <a href="{{ 'https://github.com/' ~ githubActivity.name }}">{{ githubActivity.name}}</a>
+					{% endif %}
+				{% endif  %}
 			</div>
 		{% endfor %}
 	</div>
