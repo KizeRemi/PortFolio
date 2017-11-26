@@ -153,17 +153,20 @@
 		max-width: 100%;
 	}
 
-	.container-content {
+	.container-content, .container-project {
 		flex-direction: column;
 	}
-
+	.bloc-github {
+		order: 2;
+		width: 100%;
+	}
 	.bloc-myself {
 		margin-top: 30px;
 		order: 2;
 		width: 100%;
 	}
 
-	.last-article-container {
+	.last-article-container, .bloc-project {
 		order: 1;
 	}
 

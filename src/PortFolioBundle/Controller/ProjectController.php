@@ -12,7 +12,12 @@ class ProjectController extends Controller
     public function indexAction()
     {
     	$em = $this->getDoctrine()->getEntityManager();
-    	$projects = $em->getRepository('PortFolioBundle:Project')->findAll();
-        return $this->render('project/index.html.twig', ['projects' => $projects]);
+        $projects = $em->getRepository('PortFolioBundle:Project')->findAll();
+        $githubActivities = $this->container->get('portfolio.github.user_activity')->getActivities();
+
+        return $this->render('project/index.html.twig', [
+            'projects'          => $projects,
+            'githubActivities' => $githubActivities
+        ]);
     }
 }

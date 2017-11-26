@@ -30,10 +30,34 @@ services:
         tags: ['controller.service_arguments']
 
     twig.extension.text:
-       class: Twig_Extensions_Extension_Text
-       tags:
+        class: Twig_Extensions_Extension_Text
+        tags:
             - { name: twig.extension }
-    # add more services, or override services that need manual wiring
-    # AppBundle\Service\ExampleService:
-    #     arguments:
-    #         $someArgument: 'some_value'
+
+    twig.extension.date:
+        class: Twig_Extensions_Extension_Date
+        tags:
+            - { name: twig.extension }
+
+    app.guzzle:
+        class: 'GuzzleHttp\Client'
+
+    portfolio.github.api:
+        public: true
+        class: PortFolioBundle\Services\Github\Api
+        arguments:
+            - '@app.guzzle'
+            - '%portfolio.github_token%'
+            - '%portfolio.base_uri.github_api%'
+
+    portfolio.github.event_factory:
+        class: 'PortFolioBundle\Services\Github\EventFactory'
+        public: true
+
+    portfolio.github.user_activity:
+        public: true
+        class: PortFolioBundle\Services\Github\UserActivity
+        arguments:
+            - '@portfolio.github.api'
+            - '%portfolio.github_user%'
+            - '@portfolio.github.event_factory'
