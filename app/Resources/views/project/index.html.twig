@@ -2,12 +2,45 @@
 {% block title %}Mavillaz Rémi - Projets{% endblock %}
 {% block project %} active {% endblock %}
 {% block content %}
+<h2 class="title-page">Projets</h2>
 <div class="container-project">
-	<h1>- Projets Réalis<span class="letter-hide">é</span><span class="real-last-letter letter-project"></span>&nbsp; -</h1>
-	<p>Attention, cette liste comporte uniquement mes projets OpenSource et hors cadre professionnel. :)</p>
+	<div class="bloc-github">
+		<h3 class="github-title">Activités sur Github!</h3>
+		{% if githubActivities is empty %}
+			Il n'y aucun évènement Github pour le moment.
+		{% endif %}
+		{% for githubActivity in githubActivities %}
+			<div class="github-item">
+				<img src={{ githubActivity.avatarUrl }}>
+				{% if githubActivity.type == 'CreateEvent' %}
+					{% if githubActivity.ref == 'master' %}
+						Create new repo <a href="{{ 'https://github.com/' ~ githubActivity.name }}">{{ githubActivity.name}}</a>
+					{% else %}
+						Create new branch 
+						<a href="{{ 'https://github.com/' ~  githubActivity.name ~ '/tree/' ~ githubActivity.ref }}" target="_blank">
+							{{ githubActivity.ref }}
+						</a>
+						on <a href="{{ 'https://github.com/' ~ githubActivity.name }}">{{ githubActivity.name}}</a>
+					{% endif %}
+				{% else %}
+					Pushed to 
+					<a href="{{ 'https://github.com/' ~  githubActivity.name ~ '/tree/' ~ githubActivity.ref }}" target="_blank">
+					</a> on 
+					<a href="{{ 'https://github.com/' ~ githubActivity.name }}" target="_blank">{{ githubActivity.name }}</a>
+					<p>
+						<i class="fa fa-code-fork" aria-hidden="true"></i>
+						<a href="{{ 'https://github.com/' ~  githubActivity.name ~ '/commit/' ~ githubActivity.commit }}" target="_blank">
+							#{{ githubActivity.commit }}
+						</a><span class="commit-message">:&nbsp; {{ githubActivity.message }}</span>
+					</p>
+				{% endif %}
+			</div>
+		{% endfor %}
+	</div>
+	<section class="bloc-project">
 	{% for project in projects %}
-		<article class="bloc-project">
-			<h2>{{ project.title }}</h2>
+		<article class="project-item">
+			<h3>{{ project.title }}</h3>
 			<p>Développé en {{ project.date }} par {{ project.user }}</p>
 			<div>
 				{{ project.content|raw }}
@@ -15,11 +48,12 @@
 			<div class="project-link">
 				<a target="_blank" href="{{ project.github}}">Voir sur Github</a>
 				{% autoescape %}
-				{% if project.url %}<a target="_blank" href="{{ project.url|raw}}">Voir le site</a>{% endif %}
-					{% endautoescape %}
+					{% if project.url %}<a target="_blank" href="{{ project.url|raw}}">Voir le site</a>{% endif %}
+				{% endautoescape %}
 			</div>
 		</article>
 	{% endfor %}
+	</section>
 </div>
 
 {% endblock %}

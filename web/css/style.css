@@ -123,6 +123,7 @@ nav ul li:hover:after {
 .title-page {
 	color: #cc9966;
 	font-weight: bold;
+	text-align: center;
 }
 
 .subtitle-page {
@@ -164,6 +165,7 @@ nav ul li:hover:after {
 .container-content{
 	display: flex;
 }
+
 /*******************/
 /*** Bloc Myself ***/
 /*******************/
@@ -391,29 +393,72 @@ textarea{
 	resize: none;
 }
 
+/*******************/
+/*** Bloc Github ***/
+/*******************/
+.bloc-github {
+	background-color: white;
+	height: 620px;
+	margin-right: 30px;
+	order: 1;
+	padding: 30px;
+	width: 25em;
+}
+.github-title {
+	margin-bottom: 1rem;
+}
+
+.github-item {
+	border-top: 1px dashed #bababa;	
+	margin: 1rem 0;
+	padding-top: 1rem;
+}
+
+.github-item a {
+	color: #cc9966;
+}
+
+.github-item img {
+	border-radius: 22px;
+	margin-right: 5px;
+	width: 25px;
+}
+.github-item i {
+	margin-left: 35px;
+}
+.commit-message {
+	font-style: italic;
+}
+/********************/
+/*** Bloc Project ***/
+/********************/
+.bloc-project {
+	background-color: #ffffff;
+	flex: 1;
+	order: 2;
+	padding: 2rem;
+}
+
 .container-project h1, .container-article h1{
 	margin: 4rem;
 	text-align: center;
 }
-.container-project > p {
-	text-align:center;
+
+.container-project {
+	display: flex;
+	margin-bottom: 2rem;
 }
-.container-project > article {
-	border-top: 1px solid  #ddd;
+.container-project article {
+	border-bottom: 1px dashed #ddd;
 	line-height: 1.25rem;
-	padding: 0 0 2rem 0;
+	padding-bottom: 1rem;
+	margin-bottom: 2rem;
 }
 
 .container-project article h2{
 	color: #cc9966;
 	margin: 2rem 0 0.5rem 0;
 	text-transform: uppercase;
-}
-
-.container-project article p, .container-article article p, 
-.article-societe, .article-description, .article-signature {
-	color: #a8a8a8;
-	font-style: italic;
 }
 
 .project-link{
@@ -445,7 +490,7 @@ article {
 
 .container-article article{
 	display: flex;
-	margin-bottom: 2rem;
+	margin: 2rem 0;
 	padding: 2rem;
 	overflow: hidden;
 	text-align: left;
@@ -608,9 +653,7 @@ footer h2{
     -moz-animation-name: slideletter;
     -moz-animation-fill-mode:both;
 }
-.letter-project:after{
-	content:"s";
-}
+
 .real-last-letter:before{
 	position: relative;
 	content: "E";

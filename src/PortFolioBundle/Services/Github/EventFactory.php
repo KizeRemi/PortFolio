@@ -18,23 +18,35 @@ class EventFactory
             }
         }
 
+        $commit = null;
+        $message = null;
+        $ref = null;
         if($data['type'] === 'PushEvent') {
             $message = $data['payload']['commits'][0]['message'];
             $url = $data['payload']['commits'][0]['url'];
+            $commit = substr($data['payload']['commits'][0]['sha'], 0, 7);
+            $ref = $data['payload']['ref'];
+        }
+
+        if($data['type'] === 'PullRequestEvent') {
+            $url = $data['repo']['url'];
+            $ref = $data['payload']['pull_request']['head']['ref'];
         }
 
         if($data['type'] === 'CreateEvent') {
-            $message =null;
             $url = $data['repo']['url'];
+            $ref = $data['payload']['ref'];
         }
     
         $this->events[] = new Event(
             $data['type'],
             $data['repo']['name'],
+            $commit,
             $message,
             $url,
-            $data['payload']['ref'],
-            $data['created_at']
+            $ref,
+            $data['created_at'],
+            $data['actor']['avatar_url']
         );
     }
 
@@ -43,11 +55,10 @@ class EventFactory
         if (empty($events)) {
             return $this->events;
         }
-
         foreach($events as $event) {
             $this->createEvent($event);
         }
-        dump($this->events);
+
         return $this->events;
     }
 }

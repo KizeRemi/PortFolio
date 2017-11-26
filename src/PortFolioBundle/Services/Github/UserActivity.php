@@ -5,7 +5,6 @@ use GuzzleHttp\ClientInterface;
 
 class UserActivity 
 {
-
     private $api;
     private $user;
     private $eventFactory;
