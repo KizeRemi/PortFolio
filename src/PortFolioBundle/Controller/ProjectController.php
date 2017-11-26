@@ -14,7 +14,7 @@ class ProjectController extends Controller
     	$em = $this->getDoctrine()->getEntityManager();
         $projects = $em->getRepository('PortFolioBundle:Project')->findAll();
         $githubActivities = $this->container->get('portfolio.github.user_activity')->getActivities();
-        dump($githubActivities);
+
         return $this->render('project/index.html.twig', [
             'projects'          => $projects,
             'githubActivities' => $githubActivities
