@@ -20,7 +20,7 @@ class UserActivity
     {
         $response = $this->api->handleCall('/users/'.$this->user.'/events', ['per_page' => 6]);
         $data = $this->api->handleResponse($response);
-
+        dump($data);
         return $this->eventFactory->createEventCollection($data);
     }
 }

@@ -9,6 +9,7 @@ class Event
     private $message;
     private $url;
     private $ref;
+    private $pullRequestAction;
     private $createdAt;
     private $avatarUrl;
 
@@ -19,6 +20,7 @@ class Event
         string $message = null,
         string $url,
         string $ref = null,
+        string $pullRequestAction = null,
         string $createdAt,
         string $avatarUrl
     ) {
@@ -28,6 +30,7 @@ class Event
         $this->message = $message;
         $this->url = $url;
         $this->ref = $ref;
+        $this->pullRequestAction = $pullRequestAction;
         $this->createdAt = $createdAt;
         $this->avatarUrl = $avatarUrl;
     }
@@ -60,6 +63,11 @@ class Event
     public function getRef()
     {
         return $this->ref;
+    }
+
+    public function getPullRequestAction()
+    {
+        return $this->pullRequestAction;
     }
 
     public function getCreatedAt()
